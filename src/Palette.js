@@ -55,6 +55,10 @@ export default class Palette extends Component {
                 }
             />
                 {/* //Footer */}
+                <footer className="Palette-footer">
+                    <p>{this.props.palette.paletteName}</p>
+                    <span className="emoji">{this.props.palette.emoji}</span>
+                </footer>
             </div>
         )
     }
