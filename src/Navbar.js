@@ -31,17 +31,17 @@ class Navbar extends Component{
                     <Slider defaultValue={this.props.level} min={100} max={900} step={100} onAfterChange={this.props.changeLevel}/>
                 </div>
                 <div className="select-container">
-                <FormControl >
-                    <InputLabel >Format</InputLabel>
-        <Select
-            value={this.state.format}
-          onChange={this.handleChange}
-        >
-         <MenuItem value="hex">Hex- #ffffff</MenuItem>
-          <MenuItem value="rgb">RGB- rgb(255,255,255)</MenuItem>
-          <MenuItem value="rgba">RGBA- rgba(255,255,255,1)</MenuItem>
-        </Select>
-      </FormControl>
+                    <FormControl >
+                        <InputLabel >Format</InputLabel>
+                        <Select
+                            value={this.state.format}
+                        onChange={this.handleChange}
+                        >
+                        <MenuItem value="hex">Hex- #ffffff</MenuItem>
+                        <MenuItem value="rgb">RGB- rgb(255,255,255)</MenuItem>
+                        <MenuItem value="rgba">RGBA- rgba(255,255,255,0.5)</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
             </header>
         );
