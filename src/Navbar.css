@@ -30,20 +30,6 @@
   margin-left: auto;
   margin-right: 1rem;
 }
-footer{
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: center;
-}
-footer p{
-  font-weight: bold;
-  font-size: 20px;
-}
-.emoji{
-  padding: 5px;
-  font-size: 20px;
-}
 .rc-slider-track {
   background-color: transparent;
 }

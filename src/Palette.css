@@ -1,6 +1,23 @@
 .Palette {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .Palette-colors {
   height: 90%;
+}
+footer{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+}
+footer p{
+  font-weight: bold;
+  font-size: 20px;
+}
+.emoji{
+  padding: 5px;
+  font-size: 20px;
 }
