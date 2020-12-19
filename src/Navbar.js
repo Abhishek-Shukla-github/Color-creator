@@ -24,7 +24,7 @@ class Navbar extends Component{
         return(
             <header className="Navbar">
                 <div className="logo">
-                    <a href="#">Colorama</a>
+                    <a href="/">Colorama</a>
                 </div>
                     <span>Level: {this.props.level}</span>
                 <div className="slider">
