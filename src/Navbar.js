@@ -32,7 +32,7 @@ class Navbar extends Component{
                 </div>
                 <div className="select-container">
                     <FormControl >
-                        <InputLabel >Format</InputLabel>
+                        <InputLabel className="format">Format</InputLabel>
                         <Select
                             value={this.state.format}
                         onChange={this.handleChange}
