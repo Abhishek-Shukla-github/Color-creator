@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ColorBox from "./ColorBox";
 import Navbar  from "./Navbar";
+import PaletteFooter  from "./PaletteFooter";
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
@@ -55,6 +56,7 @@ export default class SingleColorPalette extends Component {
                 }
             />
                 <div className="Palette-colors">{colorBoxes}</div>
+                <PaletteFooter palette={this.props.palette}/>
             </div>
         )
     }
