@@ -28,7 +28,7 @@ export default class Palette extends Component {
     }
     render() {
         const colorBoxes=this.props.palette.colors[this.state.level].map((color)=>{
-            return <ColorBox background={color[this.state.format]} name={color.name} moreUrl={`/palette/${this.props.palette.id}/${color.id}`} showLink={true}/>
+            return <ColorBox background={color[this.state.format]} name={color.name} moreUrl={`/palette/${this.props.palette.id}/${color.id}`} showLink={true} key={color.hex}/>
         })
         return (
             <div className="Palette">
