@@ -26,10 +26,11 @@ class Navbar extends Component{
                 <div className="logo">
                     <a href="/">Colorama</a>
                 </div>
+                {this.props.showAllColor &&
+                <div>
                     <span>Level: {this.props.level}</span>
-                <div className="slider">
-                    <Slider defaultValue={this.props.level} min={100} max={900} step={100} onAfterChange={this.props.changeLevel}/>
-                </div>
+                    <div className="slider"> <Slider defaultValue={this.props.level} min={100} max={900} step={100} onAfterChange={this.props.changeLevel}/> </div>
+                </div> }
                 <div className="select-container">
                     <FormControl >
                         <InputLabel className="format">Format</InputLabel>
@@ -42,7 +43,7 @@ class Navbar extends Component{
                         <MenuItem value="rgba">RGBA- rgba(255,255,255,0.5)</MenuItem>
                         </Select>
                     </FormControl>
-                </div>
+                </div> 
             </header>
         );
     }
