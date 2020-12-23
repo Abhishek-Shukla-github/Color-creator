@@ -6,7 +6,20 @@ import PaletteFooter from "./PaletteFooter";
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-export default class Palette extends Component {
+import {withStyles} from "@material-ui/styles";
+
+const styles={
+    palette:{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+    },
+    paletteColors:{
+        height:"90%",
+    }
+}
+
+class Palette extends Component {
     constructor(props){
         super(props);
         this.state={level:500,format:"hex",open:false};
@@ -27,14 +40,15 @@ export default class Palette extends Component {
         this.setState({format:format,open:true});
     }
     render() {
+        const {classes}=this.props;
         const colorBoxes=this.props.palette.colors[this.state.level].map((color)=>{
             return <ColorBox background={color[this.state.format]} name={color.name} moreUrl={`/palette/${this.props.palette.id}/${color.id}`} showFullPalette={true} key={color.hex}/>
         })
         return (
-            <div className="Palette">
+            <div className={classes.palette}>
                 {/* //Navbar goes here */}
                 <Navbar level={this.state.level} changeLevel={this.changeLevel} handleChange={this.changeFormat} showAllColor/>
-                <div className="Palette-colors">
+                <div className={classes.paletteColors}>
                     {/* //Bunch of color boxes */}
                     {colorBoxes}
                 </div>
@@ -61,3 +75,5 @@ export default class Palette extends Component {
         )
     }
 }
+
+export default withStyles(styles)(Palette);

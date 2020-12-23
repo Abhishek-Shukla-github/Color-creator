@@ -5,9 +5,57 @@ import PaletteFooter  from "./PaletteFooter";
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import {withStyles} from "@material-ui/styles";
 
-export default class SingleColorPalette extends Component {
+
+const styles={
+    palette:{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+    },
+    paletteColors:{
+        height:"90%",
+    },
+    colorBox:{
+        height:"50%",
+        width: "20%",
+        cursor: "pointer",
+        margin: "0 auto",
+        position: "relative",
+        display: "inline-block",
+        marginBottom: "-4px",
+        "&:hover button" :{
+            opacity:"1",
+        }
+    },
+    blackBox:{
+        backgroundColor:"black",
+    },
+    goBackBtn:{
+        color:"white",
+        width: "100px",
+        height: "30px",
+        display: "inline-block",
+        top: "50%",
+        left: "50%",
+        marginLeft: "-50px",
+        marginTop: "-15px",
+        textAlign: "center",
+        outline: "none",
+        background: "rgba(255, 255, 255, 0.3)",
+        fontSize: "1rem",
+        lineHeight: "30px",
+        textTransform: "uppercase",
+        border: "none",
+        textDecoration: "none",
+        cursor: "pointer",
+        position: "absolute",
+    }
+}
+
+class SingleColorPalette extends Component {
     constructor(props){
         super(props);
         this.state={format:"hex",open:false};
@@ -33,11 +81,12 @@ export default class SingleColorPalette extends Component {
         return shades.slice(1);
     }
     render() {
+        const {classes} =this.props;
         const {format}=this.state;
         let shades=this.gatherShades(this.props.palette.id,this.props.colorId);
         let colorBoxes=shades.map(color=><ColorBox key={color.hex} name={color.name} background={color[format]}/>)
         return (
-            <div className="Palette">
+            <div className={classes.palette}>
                 <Navbar showAllColor={false} handleChange={this.handleChange}/>
                 <Snackbar
                     anchorOrigin={{
@@ -56,9 +105,9 @@ export default class SingleColorPalette extends Component {
                     </React.Fragment>
                 }
             />
-                <div className="Palette-colors SingleColorBox">{colorBoxes}
-                <div className="black-box ColorBox">
-                    <Link to={`/palette/${this.props.palette.id}`} className="go-back-button">Go back</Link>
+                <div className={`${classes.paletteColors} `}>{colorBoxes}
+                <div className={`${classes.blackBox} ${classes.colorBox}`}>
+                    <Link to={`/palette/${this.props.palette.id}`} className={classes.goBackBtn}>Go back</Link>
                 </div>
                 </div>
                 <PaletteFooter palette={this.props.palette}/>
@@ -66,3 +115,5 @@ export default class SingleColorPalette extends Component {
         )
     }
 }
+
+export default withStyles(styles)(SingleColorPalette);
