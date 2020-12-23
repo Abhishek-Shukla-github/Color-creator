@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Slider from "rc-slider";
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import "rc-slider/assets/index.css";
-import "./Navbar.css";
+import {withStyles} from "@material-ui/styles";
+import styles from "./styles/NavbarStyles";
 
 class Navbar extends Component{
     constructor(props){
@@ -21,26 +21,24 @@ class Navbar extends Component{
         this.props.handleChange(e.target.value);
     }
     render(){
+        const {classes}=this.props;
         return(
-            <header className="Navbar">
-                <div className="logo">
+            <header className={classes.Navbar}>
+                <div className={classes.logo}>
                     <a href="/">Colorama</a>
                 </div>
                 {this.props.showAllColor &&
                 <div>
                     <span>Level: {this.props.level}</span>
-                    <div className="slider"> <Slider defaultValue={this.props.level} min={100} max={900} step={100} onAfterChange={this.props.changeLevel}/> </div>
+                    <div className={classes.slider}> <Slider defaultValue={this.props.level} min={100} max={900} step={100} onAfterChange={this.props.changeLevel}/> </div>
                 </div> }
-                <div className="select-container">
+                <div className={classes.selectContainer}>
                     <FormControl >
-                        <InputLabel className="format">Format</InputLabel>
-                        <Select
-                            value={this.state.format}
-                        onChange={this.handleChange}
-                        >
-                        <MenuItem value="hex">Hex- #ffffff</MenuItem>
-                        <MenuItem value="rgb">RGB- rgb(255,255,255)</MenuItem>
-                        <MenuItem value="rgba">RGBA- rgba(255,255,255,0.5)</MenuItem>
+                        <InputLabel className={classes.format}>Format</InputLabel>
+                        <Select value={this.state.format} onChange={this.handleChange}>
+                            <MenuItem value="hex">Hex- #ffffff</MenuItem>
+                            <MenuItem value="rgb">RGB- rgb(255,255,255)</MenuItem>
+                            <MenuItem value="rgba">RGBA- rgba(255,255,255,0.5)</MenuItem>
                         </Select>
                     </FormControl>
                 </div> 
@@ -49,4 +47,4 @@ class Navbar extends Component{
     }
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);
