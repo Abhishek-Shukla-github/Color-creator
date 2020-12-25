@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DraggableColorBox from "./DraggableColorBox";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -55,6 +56,7 @@ const styles = theme => ({
     justifyContent: "flex-end"
   },
   content: {
+    height: "calc(100vh - 64px)",
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
@@ -149,7 +151,7 @@ class NewPaletteForm extends Component {
             >
               <div className={classes.drawerHeader} />
               {this.state.colors.map(color=>(
-                <li style={{backgroundColor:color}}>{color}</li>
+                <DraggableColorBox color={color} />
               ))}
             </main>
           </div>
