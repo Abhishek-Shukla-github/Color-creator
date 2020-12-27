@@ -29,7 +29,7 @@ class PaletteFormNavbar extends Component {
         this.setState({[e.target.name] : e.target.value});
     }
     render() {
-        const {classes,open,handleSubmit}=this.props;
+        const {classes,open,handleDrawerOpen}=this.props;
         return (
             <div>
                 <CssBaseline />
@@ -43,7 +43,7 @@ class PaletteFormNavbar extends Component {
                 <IconButton
                   color='inherit'
                   aria-label='Open drawer'
-                  onClick={this.handleDrawerOpen}
+                  onClick={handleDrawerOpen}
                   className={classNames(classes.menuButton, open && classes.hide)}
                 >
                   <MenuIcon />

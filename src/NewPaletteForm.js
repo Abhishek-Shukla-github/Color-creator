@@ -90,6 +90,7 @@ class NewPaletteForm extends Component {
       this.clearPalette=this.clearPalette.bind(this);
       this.randomColorPicker=this.randomColorPicker.bind(this);
       this.handleSubmit=this.handleSubmit.bind(this);
+      
     }
     randomColorPicker(){
       let colorsArray=this.props.palettes.map((p)=>p.colors).flat();
@@ -153,7 +154,7 @@ class NewPaletteForm extends Component {
         const isPaletteFull=this.state.colors.length >= 20; 
         return (
             <div className={classes.root}>
-              <PaletteFormNavbar classes={classes} open={open} colors={this.state.colors} palettes={this.props.palettes} handleSubmit={this.handleSubmit}/>
+              <PaletteFormNavbar classes={classes} open={open} colors={this.state.colors} palettes={this.props.palettes} handleSubmit={this.handleSubmit} handleDrawerOpen={this.handleDrawerOpen}/>
             <Drawer
               className={classes.drawer}
               variant='persistent'
