@@ -10,14 +10,19 @@ const { Component } = require("react");
 class App extends Component{
   constructor(props){
     super(props);
+    const savedPalettes=JSON.parse(window.localStorage.getItem("palettes"));
     this.state={
-      palettes: seedColors,
+      palettes: savedPalettes || seedColors,
     }
     this.savePalette=this.savePalette.bind(this);
     this.findPalette=this.findPalette.bind(this);
   }
-  savePalette(newPalette){
-    this.setState({palettes:[...this.state.palettes,newPalette]})
+  syncLocalStorage(){
+    window.localStorage.setItem("palettes",JSON.stringify(this.state.palettes))
+  }
+  async savePalette(newPalette){
+    await this.setState({palettes:[...this.state.palettes,newPalette]})
+    this.syncLocalStorage();
   }
   findPalette(id){
     return this.state.palettes.find(function(palette){
@@ -25,7 +30,6 @@ class App extends Component{
     })
   }
   render(){
-    // console.log(generatePalette(seedColors[2]));
     return(
     <Switch>
       <Route exact path="/palette/new" render={(routeProps)=><NewPaletteForm savePalette={this.savePalette} {...routeProps} palettes={this.state.palettes}/>}/>
@@ -37,9 +41,6 @@ class App extends Component{
       render={(routeProps)=><SingleColorPalette colorId={routeProps.match.params.colorId} palette={generatePalette(this.findPalette(routeProps.match.params.paletteId))}/> }
     />
     </Switch>
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[1])}/>
-      // </div>
     )
   }
 }
