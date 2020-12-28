@@ -28,10 +28,10 @@ class PaletteMetaForm extends Component{
         this.setState({open:false});
       };
     render(){
-      const {handleSubmit}=this.props;
+      const {handleSubmit,handleFormClose}=this.props;
         return (
             <div>
-              <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+              <Dialog open={this.state.open} onClose={handleFormClose} aria-labelledby="form-dialog-title">
                   <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
                 <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
                 <DialogContent>
@@ -46,7 +46,7 @@ class PaletteMetaForm extends Component{
                     />
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={this.handleClose} color="primary">
+                  <Button onClick={handleFormClose} color="primary">
                     Cancel
                   </Button>
                   <Button variant="contained" color="primary" type="submit"

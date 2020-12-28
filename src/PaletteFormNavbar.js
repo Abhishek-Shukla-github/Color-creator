@@ -48,7 +48,6 @@ const styles =theme=>({
   button:{
     margin:"0 0.5rem",
   },
-
 })
 
 class PaletteFormNavbar extends Component {
@@ -60,6 +59,7 @@ class PaletteFormNavbar extends Component {
         }
         this.handleChange=this.handleChange.bind(this);
         this.handleFormOpen=this.handleFormOpen.bind(this);
+        this.handleFormClose=this.handleFormClose.bind(this);
     }
     componentDidMount(){
         ValidatorForm.addValidationRule("isPaletteNameUnique",value=>
@@ -69,8 +69,10 @@ class PaletteFormNavbar extends Component {
       );
     };
     handleFormOpen(){
-      console.log(this.state.isFormOpen); 
       this.setState({isFormOpen:true});
+    }
+    handleFormClose(){
+      this.setState({isFormOpen:false});
     }
     handleChange(e){
         this.setState({[e.target.name] : e.target.value});
@@ -107,7 +109,7 @@ class PaletteFormNavbar extends Component {
                   <Button className={classes.button} variant="contained" color="primary" onClick={this.handleFormOpen}>Save</Button>
                 </div>
             </AppBar>
-            {this.state.isFormOpen && <PaletteMetaForm handleSubmit={handleSubmit}/>}
+            {this.state.isFormOpen && <PaletteMetaForm handleSubmit={handleSubmit} handleFormClose={this.handleFormClose}/>}
             </div>
         )
     }
