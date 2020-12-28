@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
+import PaletteMetaForm from "./PaletteMetaForm";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -58,7 +59,7 @@ class PaletteFormNavbar extends Component {
         this.setState({[e.target.name] : e.target.value});
     }
     render() {
-        const {classes,open,handleDrawerOpen}=this.props;
+        const {classes,open,handleDrawerOpen,handleSubmit}=this.props;
         return (
             <div className={classes.root}>
             <AppBar color="default"
@@ -82,15 +83,7 @@ class PaletteFormNavbar extends Component {
               </Toolbar>
               {/* PaletteName Validation */}
               <div className={classes.navBtns}>
-                  <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
-                    <TextValidator 
-                      value={this.state.newPaletteName} name="newPaletteName" onChange={this.handleChange}
-                      validators={["required","isPaletteNameUnique"]}
-                      errorMessages={["Enter Palette Name","Palette Name already Taken"]}
-                    />
-                    <Button variant="contained" color="primary" type="submit"
-                    >Add Palette</Button>
-                  </ValidatorForm>
+                  <PaletteMetaForm handleSubmit={handleSubmit}/>
                   <Link to="/">
                   <Button variant="contained" color="secondary" type="submit"
                   >Go Back</Button>
