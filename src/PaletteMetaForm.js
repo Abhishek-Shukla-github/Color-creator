@@ -31,34 +31,28 @@ class PaletteMetaForm extends Component{
       const {handleSubmit}=this.props;
         return (
             <div>
-              <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                Open form dialog
-              </Button>
               <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                  <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
                 <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
                     To subscribe to this website, please enter your email address here. We will send updates
                     occasionally.
                   </DialogContentText>
-                  <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
-                    <TextValidator 
+                    <TextValidator fullWidth margin="normal"
                       value={this.state.newPaletteName} name="newPaletteName" onChange={this.handleChange}
                       validators={["required","isPaletteNameUnique"]}
                       errorMessages={["Enter Palette Name","Palette Name already Taken"]}
                     />
-                    <Button variant="contained" color="primary" type="submit"
-                    >Add Palette</Button>
-                  </ValidatorForm>
                 </DialogContent>
                 <DialogActions>
                   <Button onClick={this.handleClose} color="primary">
                     Cancel
                   </Button>
-                  <Button onClick={this.handleClose} color="primary">
-                    Subscribe
-                  </Button>
+                  <Button variant="contained" color="primary" type="submit"
+                    >Add Palette</Button>
                 </DialogActions>
+                  </ValidatorForm>
               </Dialog>
             </div>
           );

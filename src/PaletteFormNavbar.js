@@ -14,17 +14,18 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 const drawerWidth = 380;
 const styles =theme=>({
-  // root:{
-  //   display:"flex",
-  //   height:"64px"
-  // },
+  root:{
+    display:"flex",
+  },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
     flexDirection:"row",
-    justifyContent:"space-between"
+    justifyContent:"space-between",
+    alignItems:"center",
+    height:"64px",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -38,6 +39,16 @@ const styles =theme=>({
     marginLeft: 12,
     marginRight: 20
   },
+  navBtns:{
+    marginRight:"1rem",
+    "& a":{
+      textDecoration:"none",
+    }
+  },
+  button:{
+    margin:"0 0.5rem",
+  },
+
 })
 
 class PaletteFormNavbar extends Component {
@@ -45,16 +56,22 @@ class PaletteFormNavbar extends Component {
         super(props);
         this.state={
             newPaletteName:"",
+            isFormOpen:false,
         }
         this.handleChange=this.handleChange.bind(this);
+        this.handleFormOpen=this.handleFormOpen.bind(this);
     }
     componentDidMount(){
         ValidatorForm.addValidationRule("isPaletteNameUnique",value=>
         this.props.palettes.every(
         ({paletteName})=>paletteName.toLowerCase() !== value.toLowerCase()
         )
-    );
+      );
     };
+    handleFormOpen(){
+      console.log(this.state.isFormOpen); 
+      this.setState({isFormOpen:true});
+    }
     handleChange(e){
         this.setState({[e.target.name] : e.target.value});
     }
@@ -83,13 +100,14 @@ class PaletteFormNavbar extends Component {
               </Toolbar>
               {/* PaletteName Validation */}
               <div className={classes.navBtns}>
-                  <PaletteMetaForm handleSubmit={handleSubmit}/>
                   <Link to="/">
-                  <Button variant="contained" color="secondary" type="submit"
+                  <Button className={classes.button} variant="contained" color="secondary" type="submit"
                   >Go Back</Button>
                   </Link>
+                  <Button className={classes.button} variant="contained" color="primary" onClick={this.handleFormOpen}>Save</Button>
                 </div>
             </AppBar>
+            {this.state.isFormOpen && <PaletteMetaForm handleSubmit={handleSubmit}/>}
             </div>
         )
     }
