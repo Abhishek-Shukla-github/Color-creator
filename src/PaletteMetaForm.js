@@ -13,33 +13,38 @@ class PaletteMetaForm extends Component{
     constructor(props){
         super(props);
         this.state={
-            open:true,
             newPaletteName:"",
+            stage:"form"
         }
         this.handleChange=this.handleChange.bind(this);
+        this.showEmoji=this.showEmoji.bind(this);
+        this.savePalette=this.savePalette.bind(this);
+    }
+    savePalette(emoji){
+      const newPalette={paletteName:this.state.newPaletteName,emoji:emoji.native};
+      this.props.handleSubmit(newPalette);
+    }
+    showEmoji(){
+      this.setState({stage:"emoji"});
     }
     handleChange(e){
       this.setState({[e.target.name] : e.target.value});
   }
-    handleClickOpen = () => {
-        this.setState({open:true})
-      };
-    
-    handleClose = () => {
-        this.setState({open:false});
-      };
     render(){
       const {handleSubmit,handleFormClose}=this.props;
         return (
             <div>
-              <Dialog open={this.state.open} onClose={handleFormClose} aria-labelledby="form-dialog-title">
-                  <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
+              <Dialog open={this.state.stage==="emoji"} onClose={handleFormClose}>
+                <DialogTitle>Pick an emoji for your Palette!</DialogTitle>
+                <Picker onSelect={this.savePalette} title="Pick an emoji for your Palette"/>
+              </Dialog>
+              <Dialog open={this.state.stage==="form"} onClose={handleFormClose} aria-labelledby="form-dialog-title">
+                  <ValidatorForm onSubmit={this.showEmoji}>
                 <DialogTitle id="form-dialog-title">Save Palette!</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
                     Enter the name of your Palette, make sure it's unique! :)
                   </DialogContentText>
-                  <Picker />
                     <TextValidator fullWidth margin="normal"
                       value={this.state.newPaletteName} name="newPaletteName" onChange={this.handleChange}
                       validators={["required","isPaletteNameUnique"]}
