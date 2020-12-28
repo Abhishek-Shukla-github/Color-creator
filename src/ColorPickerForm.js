@@ -60,7 +60,7 @@ class ColorPickerForm extends Component {
               variant='contained'
               type='submit'
               color='primary'
-              style={{ backgroundColor: isPaletteFull ? "grey" : currentColor }}
+              style={{ backgroundColor: isPaletteFull ? "grey" : currentColor ,width:"100%",padding:"30px",height:"3rem"}}
               disabled={isPaletteFull}
             >
               {isPaletteFull ? "Palette Full" : "Add Color"}
