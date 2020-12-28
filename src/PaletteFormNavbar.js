@@ -11,6 +11,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 
 const drawerWidth = 380;
 const styles =theme=>({

@@ -6,7 +6,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 
 class PaletteMetaForm extends Component{
     constructor(props){
@@ -33,12 +34,12 @@ class PaletteMetaForm extends Component{
             <div>
               <Dialog open={this.state.open} onClose={handleFormClose} aria-labelledby="form-dialog-title">
                   <ValidatorForm onSubmit={()=>this.props.handleSubmit(this.state.newPaletteName)}>
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogTitle id="form-dialog-title">Save Palette!</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally.
+                    Enter the name of your Palette, make sure it's unique! :)
                   </DialogContentText>
+                  <Picker />
                     <TextValidator fullWidth margin="normal"
                       value={this.state.newPaletteName} name="newPaletteName" onChange={this.handleChange}
                       validators={["required","isPaletteNameUnique"]}
