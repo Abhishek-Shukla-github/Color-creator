@@ -1,5 +1,14 @@
 import sizes from "./sizes";
 export default {
+    "@global":{
+      ".fade-exit":{
+        opacity:1
+      },
+      ".fade-exit-active":{
+        opacity: 0,
+        transition: "opacity 0.5s ease-in-out"
+      }
+    },
     root: {
       background: "#360033",  /* fallback for old browsers */
       background: "-webkit-linear-gradient(to right, #0b8793, #360033)",  /* Chrome 10-25, Safari 5.1-6 */
