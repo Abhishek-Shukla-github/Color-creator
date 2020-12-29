@@ -1,11 +1,14 @@
 import sizes from "./sizes";
 export default {
     root: {
-      backgroundColor: "blue",
+      background: "#360033",  /* fallback for old browsers */
+      background: "-webkit-linear-gradient(to right, #0b8793, #360033)",  /* Chrome 10-25, Safari 5.1-6 */
+      background: "linear-gradient(to right, #0b8793, #360033)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       height: "100vh",
       display: "flex",
       alignItems: "flex-start",
-      justifyContent: "center"
+      justifyContent: "center",
+      overflow:"scroll"
     },
     container: {
       width: "50%",
