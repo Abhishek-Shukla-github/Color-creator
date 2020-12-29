@@ -6,5 +6,6 @@ export default {
     },
     paletteColors:{
         height:"90%",
-    }
+    },
+    
 }
