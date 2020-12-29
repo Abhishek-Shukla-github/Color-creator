@@ -31,10 +31,18 @@ class NewPaletteForm extends Component {
       
     }
     randomColorPicker(){
-      let randUpto10=Math.floor((Math.random()*8)+1);
-      let randUpto19=Math.floor((Math.random()*19));
-      const randColor=seedColors[randUpto10].colors[randUpto19];
-      this.setState({colors:[...this.state.colors,randColor]})
+      const allColors = this.props.palettes.map(p => p.colors).flat();
+      let rand;
+      let randomColor;
+      let isDuplicateColor = true;
+      while (isDuplicateColor) {
+        rand = Math.floor(Math.random() * allColors.length);
+        randomColor = allColors[rand];
+        isDuplicateColor = this.state.colors.some(
+        color => color.name === randomColor.name
+      );
+    }
+      this.setState({ colors: [...this.state.colors, randomColor] });
     }
     clearPalette(){
       this.setState({colors:[]})
