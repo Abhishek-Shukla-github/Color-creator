@@ -17,6 +17,7 @@ class App extends Component{
     this.savePalette=this.savePalette.bind(this);
     this.findPalette=this.findPalette.bind(this);
     this.deletePalette = this.deletePalette.bind(this);
+    this.syncLocalStorage=this.syncLocalStorage.bind(this);
   }
   deletePalette(id) {
     this.setState(
@@ -27,8 +28,8 @@ class App extends Component{
   syncLocalStorage(){
     window.localStorage.setItem("palettes",JSON.stringify(this.state.palettes))
   }
-  savePalette(newPalette){
-    this.setState({palettes:[...this.state.palettes,newPalette]})
+  async savePalette(newPalette){
+    await this.setState({palettes:[...this.state.palettes,newPalette]})
     this.syncLocalStorage();
   }
   findPalette(id){
