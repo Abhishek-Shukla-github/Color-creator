@@ -1,11 +1,15 @@
+import sizes from "./sizes";
 export default {
-    Navbar:{
+      Navbar:{
         display: "flex",
         alignItems: "center",
         justifyContent: "flexStart",
         height: "6vh",
         "& span":{
             marginRight: "15px",
+        },
+        [sizes.down("xs")]: {
+          display: "none"
         }
       },
       logo: {
@@ -35,10 +39,10 @@ export default {
         width: "340px",
         margin: "0 10px",
         display: "inline-block",
-        " & .rc-slider-track": {
+          " & .rc-slider-track": {
             backgroundColor : "transparent",
           },
-        "& .rc-slider-rail": {
+          "& .rc-slider-rail": {
             height: "8px"
           },
           "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover " : {
@@ -50,8 +54,11 @@ export default {
               height: "13px",
               marginLeft: "-7px",
               marginTop: "-3px",
-}
-      },
+            },
+          [sizes.down("md")]: {
+              width: "150px"
+            }
+          },
     selectContainer:{
       marginLeft: "auto",
       marginRight: "1rem",
