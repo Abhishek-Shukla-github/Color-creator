@@ -31,7 +31,7 @@ class NewPaletteForm extends Component {
     }
     randomColorPicker(){
       let colorsArray=this.props.palettes.map((p)=>p.colors).flat();
-      let randNum=Math.floor(Math.random()*178);
+      let randNum=Math.floor(Math.random()*(this.props.palettes.length*20)-1);
       const randColor=colorsArray[randNum];
       console.log(randColor)
       this.setState({colors:[...this.state.colors,randColor]})
