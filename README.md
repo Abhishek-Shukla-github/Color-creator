@@ -1,4 +1,4 @@
-# Colorama : The ultimate portal on the web for all your color queries !.
+# Colorama : The ultimate portal on the web for all your color queries !
 ### [Live Site](https://colorama.netlify.app/)
 
 ![Overview](https://i.ibb.co/fvZcvZJ/colorama-intro.jpg)
