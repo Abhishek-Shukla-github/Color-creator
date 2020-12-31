@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Colorama : The ultimate portal on the web for all your color queries !.
+### [Live Site](https://colorama.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Overview](https://i.ibb.co/fvZcvZJ/colorama-intro.jpg)
+![Overview](https://i.ibb.co/vHGPGNQ/colorama-palette-view.jpg)
+![Overview](https://i.ibb.co/mT96TrM/colorama-single-color-view.jpg)
+![Overview](https://i.ibb.co/5vNVWPT/colorama-create-palette.jpg)
+![Overview](https://i.ibb.co/gSQFszb/colorama-emoji.jpg)
 
-## Available Scripts
+## Introduction:-
 
-In the project directory, you can run:
+* Colorama is a React Web App which allows users to create their own colors and allows them to add various color props to it.
+* User can choose from various pre-made color color palettes or can make one of their own comprising of their favorite colors and have it saved for usage in their project.
+* Colorama provides color availability in hex, rgb and rgba format ,which user can use with a single click using copy-to-clipboard feature.
+* The app provides 9 different shades for every single color available thereby providing more flexibilty and freedom of creativity.
+* The App features an intuitive UI with drag and drop color boxes and interesting animations!
+* The App is build with ReactJS.
+* Material-Ui is used to design our UI , chromaJS is used to convert the colors in different formats , React-Router is used for routing the app.
+* The transitions and animations are made using react-css-transition-group and drag and drop feature is build using react-sortable-hoc
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Setup:-
+run ``` npm i && npm start ```
